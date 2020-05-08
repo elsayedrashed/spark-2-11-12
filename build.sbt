@@ -4,6 +4,9 @@ version := "0.1"
 
 scalaVersion := "2.11.12"
 
+// Skip the test during assembly
+test in assembly := {}
+
 val sparkVersion = "2.4.5"
 val ScalaTestVersion = "3.1.1"
 val typeSafeVersion = "1.4.0"
@@ -14,8 +17,8 @@ resolvers ++= Seq(
 
 // Apache Spark
 libraryDependencies ++= Seq(
-  "org.apache.spark" %% "spark-core" % sparkVersion % "provided" withSources(),
-  "org.apache.spark" %% "spark-sql" % sparkVersion % "provided" withSources()
+  "org.apache.spark" %% "spark-core" % sparkVersion,
+  "org.apache.spark" %% "spark-sql" % sparkVersion
 )
 
 // Library
